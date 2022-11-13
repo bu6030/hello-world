@@ -7,17 +7,17 @@ spring:
   cache:
     type: ehcache
     config: classpath:ehcache.xml
-  datasource:
-    url:
-    username:
-    password:
-    driver-class-name: com.mysql.cj.jdbc.Driver
 #  datasource:
-#    driver-class-name: org.sqlite.JDBC
-#    url: jdbc:sqlite:/Users/buxuesong/Documents/git_code/hello-world/hello-world.db
+#    url:
 #    username:
 #    password:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:/Users/buxuesong/Documents/git_code/hello-world/hello-world.db
+    username:
+    password:
   #针对SQLite配置方言，MySQL不需要该配置
-#  jpa:
-#    database-platform: com.enigmabridge.hibernate.dialect.SQLiteDialect
+  jpa:
+    database-platform: com.enigmabridge.hibernate.dialect.SQLiteDialect
 
