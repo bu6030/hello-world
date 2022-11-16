@@ -19,8 +19,6 @@ public class TestRestController {
     private RestTemplate restTemplate;
     @Autowired
     private StudentService studentService;
-    @Autowired
-    private MessageProducer messageProducer;
 
     @Autowired
     private StudentRepository studentRepository;
@@ -119,9 +117,4 @@ public class TestRestController {
         return response.getBody();
     }
 
-    @PostMapping("/sendMQMessage")
-    public String sendMQMessage(@RequestParam String content) {
-        messageProducer.sendMessageToMQ(content);
-        return "ok";
-    }
 }
