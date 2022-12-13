@@ -7,22 +7,39 @@ spring:
   cache:
     type: ehcache
     config: classpath:ehcache.xml
-#  datasource:
-#    url:
-#    username:
-#    password:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
+  #  datasource:
+  #    url:
+  #    username:
+  #    password:
+  #    driver-class-name: com.mysql.cj.jdbc.Driver
   datasource:
     driver-class-name: org.sqlite.JDBC
     url: jdbc:sqlite:/Users/XuesongBu/Documents/git_code/hello-world/hello-world.db
     username:
     password:
-  #针对SQLite配置方言，MySQL不需要该配置
   jpa:
     database-platform: com.enigmabridge.hibernate.dialect.SQLiteDialect
-  #RabbitMQ服务器配置，地址账号密码，virtualhost等配置
   rabbitmq:
-    addresses:
-    username:
-    password:
-    virtual-host:
+    addresses: 修改为自己RabbitMQ服务器地址
+    username: 修改为自己的RabbitMQ账号
+    password: 修改为自己的RabbitMQ密码
+    virtual-host: 修改为自己的RabbitMQ的virtual-host
+  kafka:
+    bootstrap-servers: 修改为自己Kafka服务器地址
+    consumer:
+      group-id: kafka-demo-kafka-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer #关键字的序列化类
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer #值的序列化类
+      properties: #账号密码配置
+        sasl.mechanism: PLAIN
+        security.protocol: SASL_PLAINTEXT
+        sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="消费者账号" password="密码";
+    producer:
+      group-id: kafka-demo-kafka-group
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer #关键字的序列化类
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer #值的序列化类
+      properties: #账号密码配置
+        session.timeout.ms: 15000
+        sasl.mechanism: PLAIN
+        security.protocol: SASL_PLAINTEXT
+        sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="生产者账号" password="密码";
