@@ -27,7 +27,10 @@ public class WebSecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .authorizeRequests().antMatchers("/helloWorld").permitAll()
+                .authorizeRequests()
+                .antMatchers("/helloWorld").permitAll()
+                // 增加swagger内容不需要basicauth权限可以直接访问
+                .antMatchers("/swagger-resources/**","/swagger-ui.html","/api/v2/api-docs","/webjars/**").permitAll()
                 .antMatchers("/**", "/settings/**").hasAuthority(ACCOUNT_CLIENT_AUTHORITY).anyRequest().authenticated()
                 .and()
                 .httpBasic()
