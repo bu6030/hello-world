@@ -1,6 +1,6 @@
 # hello-world
 这几天突然有个想法，帮助那些刚毕业的大学生以及新入门的朋友来学习SpringBoot，写一系列的SpringBoot相关知识。  
-以下是已经写完的十篇，希望可以帮助到大家。
+以下是已经写完的十三篇，希望可以帮助到大家。
 
 [SpringBoot从入门到精通（一）搭建SpringBoot项目](https://zhuanlan.zhihu.com/p/570242031)
 
@@ -21,3 +21,9 @@
 [SpringBoot从入门到精通（九）SpringBoot集成RestTemplate请求接口](https://zhuanlan.zhihu.com/p/573970431)
 
 [SpringBoot从入门到精通（十）SpringBoot集成ehcache内存缓存](https://zhuanlan.zhihu.com/p/576520383)
+
+[SpringBoot从入门到精通（十一）SpringBoot集成RabbitMQ](https://zhuanlan.zhihu.com/p/583835016)
+
+[SpringBoot从入门到精通（十二）SpringBoot集成Kafka](https://zhuanlan.zhihu.com/p/591219820)
+
+[SpringBoot从入门到精通（十三）SpringBoot集成Swagger3](https://zhuanlan.zhihu.com/p/593937567)
