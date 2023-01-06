@@ -3,6 +3,12 @@ server:
   servlet:
     context-path: /hello-world-new
 
+test.properties.value:
+  a: 我是a
+  b: 我是b
+  a1: 我是a1
+  b1: 我是b1
+  test-a: 我是test-a
 
 spring:
   # 解决swagger3在新版本Springboot中无法展示的问题
