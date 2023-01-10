@@ -20,6 +20,9 @@ public class TestPropertiesControllor {
     @Value("${test.properties.value.b}")
     private String b;
 
+    @Value("${test.properties.value.bb1}")
+    private String bb1;
+
     @GetMapping("/properties")
     public String getProperties(){
         log.info("a={};b={}", a, b);
@@ -28,9 +31,10 @@ public class TestPropertiesControllor {
 
     @GetMapping("/properties1")
     public String getProperties1(){
-        log.info("a1={};b1={};test-a={}", testPropertiesConfig.getA1(),
-                testPropertiesConfig.getB1(), testPropertiesConfig.getTestA());
+        log.info("a1={};b1={};test-a={},bb1={}", testPropertiesConfig.getA1(),
+                testPropertiesConfig.getB1(), testPropertiesConfig.getTestA(), bb1);
         return  "a1=" + testPropertiesConfig.getA1() + ";b1="
-                + testPropertiesConfig.getB1() + ";test-a=" + testPropertiesConfig.getTestA();
+                + testPropertiesConfig.getB1() + ";test-a="
+                + testPropertiesConfig.getTestA() + ";bb1=" + bb1;
     }
 }
