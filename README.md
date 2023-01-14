@@ -27,3 +27,7 @@
 [SpringBoot从入门到精通（十二）SpringBoot集成Kafka](https://zhuanlan.zhihu.com/p/591219820)
 
 [SpringBoot从入门到精通（十三）SpringBoot集成Swagger3](https://zhuanlan.zhihu.com/p/593937567)
+
+[SpringBoot从入门到精通（十四）SpringBoot读取配置文件](https://zhuanlan.zhihu.com/p/596984255)
+
+[SpringBoot从入门到精通（十五）SpringBoot配置Logback日志输出格式](https://zhuanlan.zhihu.com/p/599114660)
