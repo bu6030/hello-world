@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-public class TestPropertiesControllor {
+public class TestPropertiesController {
 
     @Autowired
     private TestPropertiesConfig testPropertiesConfig;
