@@ -25,7 +25,7 @@ spring:
   #    driver-class-name: com.mysql.cj.jdbc.Driver
   datasource:
     driver-class-name: org.sqlite.JDBC
-    url: jdbc:sqlite:/Users/buxuesong/Documents/git_code/hello-world/hello-world.db
+    url: jdbc:sqlite:/Users/XuesongBu/Documents/git_code/hello-world/hello-world.db
     username:
     password:
   jpa:
