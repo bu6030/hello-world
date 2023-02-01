@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.repository.Student;
+import com.example.demo.repository.StudentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;

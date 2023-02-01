@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.controller;
 
+import com.example.demo.swagger.SwaggerApiModel;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.*;
 

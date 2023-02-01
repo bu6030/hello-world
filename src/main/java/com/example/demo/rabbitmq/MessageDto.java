@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.rabbitmq;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

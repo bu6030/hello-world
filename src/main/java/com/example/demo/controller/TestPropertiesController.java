@@ -1,5 +1,6 @@
-package com.example.demo.testproperties;
+package com.example.demo.controller;
 
+import com.example.demo.testproperties.TestPropertiesConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
