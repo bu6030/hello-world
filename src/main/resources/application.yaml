@@ -22,8 +22,11 @@ management:
         #include: health,info
         include: '*'
   endpoint:
+    # 表示可以通过/actuator/shutdown停止服务
+    shutdown:
+      enabled: true
+    # 表示health的内容显示的更加详细内容，不光只status
     health:
-      # 表示health的内容显示的更加详细内容，不光只status
       show-details: always
   info: # 显示任意的应用信息，默认关闭，如果是更低一些的版本默认是开启的
     env:
