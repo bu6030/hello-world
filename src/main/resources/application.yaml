@@ -10,6 +10,39 @@ test.properties.value:
   b1: 我是b1
   test-a: 我是test-a
 
+management:
+  # SpringBoot后期版本要求和服务不能是同一个端口，如果端口相同则起不来
+  server.port: 8081
+  security:
+    enabled: false
+  # 可以指定暴露哪些actuator服务，'*'为全部，注意加上引号，被注释的写法表示只允许health，info
+  endpoints:
+    web:
+      exposure:
+        #include: health,info
+        include: '*'
+  endpoint:
+    health:
+      # 表示health的内容显示的更加详细内容，不光只status
+      show-details: always
+  info: # 显示任意的应用信息，默认关闭，如果是更低一些的版本默认是开启的
+    env:
+      enabled: true
+# 自定义/actuator/info中的各种内容，可以自定义，也可以取默认的一些系统/服务环境变量
+info:
+  app:
+    encoding: "@project.build.sourceEncoding@"
+    java:
+      source: "@java.version@"
+      target: "@java.version@"
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    pomVersion: @project.version@
+    # 甚至可以自定义test
+    test: 'ddfff'
+
 spring:
   # 解决swagger3在新版本Springboot中无法展示的问题
   mvc:
