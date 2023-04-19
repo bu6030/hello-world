@@ -1,21 +1,18 @@
-//package com.example.demo;
+package com.example.demo.controller;//package com.example.demo;
 //
-//import lombok.extern.slf4j.Slf4j;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.RestController;
 //
-//@Slf4j
 //@RestController
-//public class KafkaController {
+//public class RabbitMQController {
 //    @Autowired
-//    private KafkaProducer kafkaProducer;
+//    private MessageProducer messageProducer;
 //
-//    @PostMapping("/sendkafkaMessage")
+//    @PostMapping("/sendMQMessage")
 //    public String sendMQMessage(@RequestParam String content) {
-//        log.info("KafkaController content: {}", content);
-//        kafkaProducer.sendMessage(content);
+//        messageProducer.sendMessageToMQ(content);
 //        return "ok";
 //    }
 //}

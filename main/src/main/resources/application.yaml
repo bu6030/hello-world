@@ -32,19 +32,19 @@ management:
     env:
       enabled: true
 # 自定义/actuator/info中的各种内容，可以自定义，也可以取默认的一些系统/服务环境变量
-info:
-  app:
-    encoding: "@project.build.sourceEncoding@"
-    java:
-      source: "@java.version@"
-      target: "@java.version@"
-  build:
-    artifact: @project.artifactId@
-    name: @project.name@
-    description: @project.description@
-    pomVersion: @project.version@
-    # 甚至可以自定义test
-    test: 'ddfff'
+#info:
+#  app:
+#    encoding: "@project.build.sourceEncoding@"
+#    java:
+#      source: "@java.version@"
+#      target: "@java.version@"
+#  build:
+#    artifact: @project.artifactId@
+#    name: @project.name@
+#    description: @project.description@
+#    pomVersion: @project.version@
+#    # 甚至可以自定义test
+#    test: 'ddfff'
 
 spring:
   # 解决swagger3在新版本Springboot中无法展示的问题

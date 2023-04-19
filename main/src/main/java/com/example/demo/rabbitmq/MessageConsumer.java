@@ -1,4 +1,4 @@
-//package com.example.demo;
+package com.example.demo.rabbitmq;//package com.example.demo;
 //
 //import com.fasterxml.jackson.databind.ObjectMapper;
 //import com.rabbitmq.client.Channel;

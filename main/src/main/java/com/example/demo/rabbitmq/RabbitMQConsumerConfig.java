@@ -1,4 +1,4 @@
-//package com.example.demo;
+package com.example.demo.rabbitmq;//package com.example.demo;
 //
 //import com.rabbitmq.client.BuiltinExchangeType;
 //import com.rabbitmq.client.Channel;
