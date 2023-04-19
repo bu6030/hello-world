@@ -1,6 +1,6 @@
 # hello-world
 这几天突然有个想法，帮助那些刚毕业的大学生以及新入门的朋友来学习SpringBoot，写一系列的SpringBoot相关知识。  
-以下是已经写完的十三篇，希望可以帮助到大家。
+以下是已经写完的十九篇，希望可以帮助到大家。
 
 [SpringBoot从入门到精通（一）搭建SpringBoot项目](https://zhuanlan.zhihu.com/p/570242031)
 
