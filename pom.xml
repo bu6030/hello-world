@@ -17,5 +17,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>main</module>
+        <module>test-mongo</module>
     </modules>
 </project>

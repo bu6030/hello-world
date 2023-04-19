@@ -1,0 +1,9 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /test-mongo
+
+spring:
+  data:
+    mongodb:
+      uri: TO_CHANGE_YOUR_MONGO_URL
