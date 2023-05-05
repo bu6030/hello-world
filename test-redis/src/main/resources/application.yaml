@@ -11,19 +11,19 @@ server:
 #    password: TO_CHANGE_PASSWORD
 
 #单节点配置
-#spring:
-#  redis:
-#    host: 127.0.0.1
-#    port: 6379
-#    password: TO_CHANGE_PASSWORD
-
-#哨兵模式配置
 spring:
   redis:
-    sentinel:
-      master: myMaster
-      nodes:
-        - 127.0.0.1:7002
-        - 127.0.0.1:7003
-        - 127.0.0.1:7004
+    host: 127.0.0.1
+    port: 6379
     password: TO_CHANGE_PASSWORD
+
+#哨兵模式配置
+#spring:
+#  redis:
+#    sentinel:
+#      master: myMaster
+#      nodes:
+#        - 127.0.0.1:7002
+#        - 127.0.0.1:7003
+#        - 127.0.0.1:7004
+#    password: TO_CHANGE_PASSWORD
