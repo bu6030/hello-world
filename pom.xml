@@ -19,5 +19,6 @@
         <module>main</module>
         <module>test-mongo</module>
         <module>test-redis</module>
+        <module>test-spring-security6</module>
     </modules>
 </project>

@@ -1,0 +1,4 @@
+server:
+  port: 8084
+  servlet:
+    context-path: /test-spring-security6
