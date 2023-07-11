@@ -9,14 +9,13 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-@EnableSwagger2
 public class SwaggerConfiguration {
     // 控制是否允许swagger
     private boolean enableSwagger = true;
 
     @Bean
     public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2) //展示的swagger文档格式
+        return new Docket(DocumentationType.OAS_30) //展示的swagger文档格
                 .enable(enableSwagger) //是否启动swagger配置
                 .select()
                 .apis(RequestHandlerSelectors.any())
