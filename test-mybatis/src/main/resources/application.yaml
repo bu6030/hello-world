@@ -1,0 +1,15 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /test-mybatis
+
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:/Users/buxuesong/Documents/git_code/hello-world/hello-world.db
+    username:
+    password:
+  jpa:
+    database-platform: com.enigmabridge.hibernate.dialect.SQLiteDialect
+mybatis:
+  config-locations: classpath:mapper/*.xml
