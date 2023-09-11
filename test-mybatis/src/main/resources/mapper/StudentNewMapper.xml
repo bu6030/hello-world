@@ -38,7 +38,7 @@
         <!-- 引入上面的通用查询 sql -->
         <include refid="studentDetail"></include>
     </select>
-
+    <!-- 保存 student sql -->
     <insert id="saveStudent">
         insert into student
             (id,
@@ -55,7 +55,7 @@
              #{student.studentSchool.sno},
              #{student.studentSchool.sname})
     </insert>
-
+    <!-- 更新 student sql -->
     <update id="updateStudent">
         update student
                    set name = #{student.name},
@@ -65,7 +65,7 @@
                        school_name= #{student.studentSchool.sname}
              where id = #{student.id}
     </update>
-
+    <!-- 删除 student sql -->
     <delete id="deleteStudent">
         delete from student where id = #{id}
     </delete>

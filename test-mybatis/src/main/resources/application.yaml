@@ -6,11 +6,9 @@ server:
 spring:
   datasource:
     driver-class-name: org.sqlite.JDBC
-    url: jdbc:sqlite:/Users/XuesongBu/Documents/git_code/hello-world/hello-world.db
+    url: jdbc:sqlite:/Users/buxuesong/Documents/git_code/hello-world/hello-world.db
     username:
     password:
-  jpa:
-    database-platform: com.enigmabridge.hibernate.dialect.SQLiteDialect
 mybatis:
   # 配置 mybatis xml 文件路径
   mapper-locations: classpath:mapper/*.xml

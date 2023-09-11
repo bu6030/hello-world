@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class TestRestController {
 
+    // 使用注解方式的 MyBatis
     @Autowired
     private StudentMapper studentMapper;
+    // 使用 XML 方式的 MyBatis
     @Autowired
     private StudentNewMapper studentNewMapper;
 
