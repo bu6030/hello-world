@@ -15,26 +15,35 @@ public class TestRestController {
     private StudentNewMapper studentNewMapper;
 
     @RequestMapping(value = "/student", method = RequestMethod.GET)
-    public Object getStudent(@RequestParam String id){
+    public Object getStudent(@RequestParam Long id){
 //        return studentMapper.getStudent(id);
         return studentNewMapper.getStudent(id);
     }
 
+    @RequestMapping(value = "/students", method = RequestMethod.GET)
+    public Object getStudents(){
+//        return studentMapper.getStudent(id);
+        return studentNewMapper.getStudents();
+    }
+
     @RequestMapping(value = "/student", method = RequestMethod.POST)
-    public String addStudent(@RequestParam String id, @RequestParam String name){
-        studentMapper.saveStudent(new Student(id,name));
+    public String addStudent(@RequestBody Student student){
+//        studentMapper.saveStudent(student);
+        studentNewMapper.saveStudent(student);
         return "ok";
     }
 
     @RequestMapping(value = "/student", method = RequestMethod.PUT)
-    public String updateStudent(@RequestParam String id, @RequestParam String name){
-        studentMapper.updateStudent(id, name);
+    public String updateStudent(@RequestBody Student student){
+//        studentMapper.updateStudent(student);
+        studentNewMapper.updateStudent(student);
         return "ok";
     }
 
     @RequestMapping(value = "/student", method = RequestMethod.DELETE)
     public String deleteStudent(@RequestParam String id){
-        studentMapper.deleteStudent(id);
+//        studentMapper.deleteStudent(id);
+        studentNewMapper.deleteStudent(id);
         return "ok";
     }
 }

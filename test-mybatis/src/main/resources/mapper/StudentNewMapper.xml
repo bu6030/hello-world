@@ -1,21 +1,73 @@
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.test.mybatis.mapper.StudentNewMapper">
+    <!-- 设定返回的结果对应 -->
     <resultMap type="com.test.mybatis.mapper.Student" id="student">
+        <!-- 设定表字段与实体字段对应 -->
         <result column="id" property="id"/>
         <result column="name" property="name"/>
+        <!-- 设定某些特定表字段与某些实体类对应，通过 class_ 前缀对应到 studentClass 实体 -->
+        <association property="studentClass" columnPrefix="class_" autoMapping="true"/>
+        <!-- 设定某些特定表字段与某些实体类对应，通过 school_ 前缀对应到 studentSchool 实体 -->
+        <association property="studentSchool" columnPrefix="school_" autoMapping="true">
+            <!-- 设定数据库字段与 studentSchool 实体对应，例如表字段 no（需要去掉前缀）对应到实体 sno -->
+            <result property="sno" column="no" />
+            <result property="sname" column="name" />
+        </association>
     </resultMap>
 
-    <select id="getStudent" resultMap="student">
-		select id,name from student where id = #{id}
-	</select>
-<!--    <insert id="insert">-->
-<!--	    insert into users (id, name, funkyNumber, roundingMode) values (-->
-<!--	    	#{id}, #{name}, #{funkyNumber}, #{roundingMode}-->
-<!--	    )-->
-<!--	</insert>-->
+    <!-- 抽出来通用的查询语句 -->
+    <sql id="studentDetail">
+        select t.id,
+               t.name,
+               t.class_no,
+               t.class_name,
+               t.school_no,
+               t.school_name
+        from student t
+    </sql>
+    <!-- 与 java 中的 Mapper 类的 getStudent 方法对应 -->
+    <select id="getStudent" parameterType="Long" resultMap="student">
+        <!-- 引入上面的通用查询 sql -->
+        <include refid="studentDetail"></include>
+        where t.id = #{id}
+    </select>
 
+    <select id="getStudents" resultMap="student">
+        <!-- 引入上面的通用查询 sql -->
+        <include refid="studentDetail"></include>
+    </select>
+
+    <insert id="saveStudent">
+        insert into student
+            (id,
+             name,
+             class_no,
+             class_name,
+             school_no,
+             school_name)
+        values
+            (#{student.id},
+             #{student.name},
+             #{student.studentClass.no},
+             #{student.studentClass.name},
+             #{student.studentSchool.sno},
+             #{student.studentSchool.sname})
+    </insert>
+
+    <update id="updateStudent">
+        update student
+                   set name = #{student.name},
+                       class_no= #{student.studentClass.no},
+                       class_name= #{student.studentClass.name},
+                       school_no= #{student.studentSchool.sno},
+                       school_name= #{student.studentSchool.sname}
+             where id = #{student.id}
+    </update>
+
+    <delete id="deleteStudent">
+        delete from student where id = #{id}
+    </delete>
 
 </mapper>
