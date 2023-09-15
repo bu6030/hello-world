@@ -15,6 +15,12 @@
             <result property="sno" column="no" />
             <result property="sname" column="name" />
         </association>
+        <!--配置一个学生对多个书包的关系-->
+        <collection property="schoolBags" javaType="java.util.List" ofType="com.test.mybatis.mapper.SchoolBag">
+            <id property="id" column="school_bag_id"/>
+            <result property="name" column="shool_bag_name"/>
+        </collection>
+
     </resultMap>
 
     <!-- 抽出来通用的查询语句 -->
@@ -24,8 +30,11 @@
                t.class_no,
                t.class_name,
                t.school_no,
-               t.school_name
+               t.school_name,
+               s.id AS school_bag_id,
+               s.name AS shool_bag_name
         from student t
+        left join school_bag s on t.id = s.student_id
     </sql>
     <!-- 与 java 中的 Mapper 类的 getStudent 方法对应 -->
     <select id="getStudent" parameterType="Long" resultMap="student">

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Builder
@@ -20,6 +21,7 @@ public class Student implements Serializable {
 
     private StudentClass studentClass;
     private StudentSchool studentSchool;
+    private List<SchoolBag> schoolBags;
 
     @Data
     @Builder
