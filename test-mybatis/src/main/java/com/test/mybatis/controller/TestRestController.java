@@ -16,36 +16,59 @@ public class TestRestController {
     @Autowired
     private StudentNewMapper studentNewMapper;
 
+    @RequestMapping(value = "/studentXML", method = RequestMethod.GET)
+    public Object getStudentXML(@RequestParam Long id){
+        return studentNewMapper.getStudent(id);
+    }
+
     @RequestMapping(value = "/student", method = RequestMethod.GET)
     public Object getStudent(@RequestParam Long id){
-//        return studentMapper.getStudent(id);
-        return studentNewMapper.getStudent(id);
+        return studentMapper.getStudent(id);
+    }
+
+    @RequestMapping(value = "/studentsXML", method = RequestMethod.GET)
+    public Object getStudentsXML(){
+        return studentNewMapper.getStudents();
     }
 
     @RequestMapping(value = "/students", method = RequestMethod.GET)
     public Object getStudents(){
-//        return studentMapper.getStudent(id);
-        return studentNewMapper.getStudents();
+        return studentMapper.getStudents();
+    }
+
+    @RequestMapping(value = "/studentXML", method = RequestMethod.POST)
+    public String addStudentXML(@RequestBody Student student){
+        studentNewMapper.saveStudent(student);
+        return "ok";
     }
 
     @RequestMapping(value = "/student", method = RequestMethod.POST)
     public String addStudent(@RequestBody Student student){
-//        studentMapper.saveStudent(student);
-        studentNewMapper.saveStudent(student);
+        studentMapper.saveStudent(student);
+        return "ok";
+    }
+
+    @RequestMapping(value = "/studentXML", method = RequestMethod.PUT)
+    public String updateStudentXML(@RequestBody Student student){
+        studentNewMapper.updateStudent(student);
         return "ok";
     }
 
     @RequestMapping(value = "/student", method = RequestMethod.PUT)
     public String updateStudent(@RequestBody Student student){
-//        studentMapper.updateStudent(student);
-        studentNewMapper.updateStudent(student);
+        studentMapper.updateStudent(student);
+        return "ok";
+    }
+
+    @RequestMapping(value = "/studentXML", method = RequestMethod.DELETE)
+    public String deleteStudentXML(@RequestParam String id){
+        studentNewMapper.deleteStudent(id);
         return "ok";
     }
 
     @RequestMapping(value = "/student", method = RequestMethod.DELETE)
     public String deleteStudent(@RequestParam String id){
-//        studentMapper.deleteStudent(id);
-        studentNewMapper.deleteStudent(id);
+        studentMapper.deleteStudent(id);
         return "ok";
     }
 }

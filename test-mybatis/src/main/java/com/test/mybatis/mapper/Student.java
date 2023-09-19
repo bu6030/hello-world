@@ -18,9 +18,13 @@ public class Student implements Serializable {
 
     private String id;
     private String name;
-
+    // 班级，在学生表中，可以抽象到实体班级中
     private StudentClass studentClass;
+    // 学校，在学生表中，可以抽象到实体学校中
     private StudentSchool studentSchool;
+    // 班主任，独立表，表关系一对一，一个同学一个班主任
+    private Teacher teacher;
+    // 书包，独立表，表关系一对多，一个同学可以好几个书包
     private List<SchoolBag> schoolBags;
 
     @Data

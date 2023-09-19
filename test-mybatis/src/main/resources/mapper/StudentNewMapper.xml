@@ -15,12 +15,17 @@
             <result property="sno" column="no" />
             <result property="sname" column="name" />
         </association>
+        <!-- 配置一个学生对应一个班主任关系 -->
+        <association property="teacher" columnPrefix="teacher_" autoMapping="true">
+            <!-- 设定数据库字段与 studentSchool 实体对应，例如表字段 no（需要去掉前缀）对应到实体 sno -->
+            <result property="id" column="id" />
+            <result property="name" column="name" />
+        </association>
         <!--配置一个学生对多个书包的关系-->
         <collection property="schoolBags" javaType="java.util.List" ofType="com.test.mybatis.mapper.SchoolBag">
             <id property="id" column="school_bag_id"/>
             <result property="name" column="shool_bag_name"/>
         </collection>
-
     </resultMap>
 
     <!-- 抽出来通用的查询语句 -->
@@ -32,22 +37,26 @@
                t.school_no,
                t.school_name,
                s.id AS school_bag_id,
-               s.name AS shool_bag_name
+               s.name AS shool_bag_name,
+               e.id AS teacher_id,
+               e.name AS teacher_name
         from student t
         left join school_bag s on t.id = s.student_id
+        left join teacher e on t.id = e.student_id
     </sql>
-    <!-- 与 java 中的 Mapper 类的 getStudent 方法对应 -->
+    <!-- 与 java 中的 Mapper 类的 getStudent 方法对应，通过 id 获取学生信息 SQL -->
     <select id="getStudent" parameterType="Long" resultMap="student">
         <!-- 引入上面的通用查询 sql -->
         <include refid="studentDetail"></include>
+        <!-- 具体查询条件 -->
         where t.id = #{id}
     </select>
-
+    <!-- 获取学生信息列表 SQL -->
     <select id="getStudents" resultMap="student">
         <!-- 引入上面的通用查询 sql -->
         <include refid="studentDetail"></include>
     </select>
-    <!-- 保存 student sql -->
+    <!-- 新增学生 SQL -->
     <insert id="saveStudent">
         insert into student
             (id,
@@ -64,7 +73,7 @@
              #{student.studentSchool.sno},
              #{student.studentSchool.sname})
     </insert>
-    <!-- 更新 student sql -->
+    <!-- 更新学生 sql -->
     <update id="updateStudent">
         update student
                    set name = #{student.name},
@@ -74,7 +83,7 @@
                        school_name= #{student.studentSchool.sname}
              where id = #{student.id}
     </update>
-    <!-- 删除 student sql -->
+    <!-- 删除学生 sql -->
     <delete id="deleteStudent">
         delete from student where id = #{id}
     </delete>

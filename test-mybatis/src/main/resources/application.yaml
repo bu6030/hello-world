@@ -6,12 +6,15 @@ server:
 spring:
   datasource:
     driver-class-name: org.sqlite.JDBC
-    url: jdbc:sqlite:/Users/buxuesong/Documents/git_code/hello-world/hello-world.db
+    url: jdbc:sqlite:/Users/XuesongBu/Documents/git_code/hello-world/hello-world.db
     username:
     password:
+  logback:
+    level: DEBUG
 mybatis:
   # 配置 mybatis xml 文件路径
   mapper-locations: classpath:mapper/*.xml
   configuration:
     # 自动将数据库表字段按照驼峰格式转换为 bean
     map-underscore-to-camel-case: true
+
