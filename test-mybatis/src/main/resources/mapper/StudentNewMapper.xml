@@ -4,7 +4,7 @@
 <mapper namespace="com.test.mybatis.mapper.StudentNewMapper">
     <!-- 设定返回的结果对应 -->
     <resultMap type="com.test.mybatis.mapper.Student" id="student">
-        <!-- 设定表字段与实体字段对应 -->
+        <!-- 设定表字段与实体字段对应，column 为 SQL 查询结果对应的列名，property 对应实体的属性 -->
         <result column="id" property="id"/>
         <result column="name" property="name"/>
         <!-- 设定某些特定表字段与某些实体类对应，通过 class_ 前缀对应到 studentClass 实体 -->

@@ -16,14 +16,19 @@ public interface StudentMapper {
     // 如果有几个类似的查询，无法像 XML 中可以抽取出公共的
     // 只能每次 copy 到新方法
     @Results({
+            // 注意每一个 Result 配置，property 对应实体的属性值，column 对应 SQL 语句中查询的结果值
             @Result(property = "id",column = "id"),
             @Result(property="name", column="name"),
             @Result(property="studentClass.no", column="class_no"),
             @Result(property="studentClass.name", column="class_name"),
             @Result(property="studentSchool.sno", column="school_no"),
             @Result(property="studentSchool.sname", column="school_name"),
+            // 注意下面的 column = "id" 这个是主表 student 的主键 ID，通过这个 id 到 findSchoolBagsByStudentId 方法查询书包数据
+            // javaType 配置返回的是列表数据，通过 List 返回
             @Result(property = "schoolBags",column = "id", javaType = List.class,
                     many = @Many(select = "com.test.mybatis.mapper.StudentMapper.findSchoolBagsByStudentId")),
+            // 注意下面的 column = "id" 这个是主表 student 的主键 ID，通过这个 id 到 findTeacherByStudentId 方法查询班主任数据
+            // javaType 配置返回的是实体教师数据，通过 Teacher 返回
             @Result(property = "teacher",column = "id", javaType = com.test.mybatis.mapper.Teacher.class,
                     one = @One(select = "com.test.mybatis.mapper.StudentMapper.findTeacherByStudentId"))
     })
@@ -53,19 +58,25 @@ public interface StudentMapper {
     @Select("select s.id AS teacher_id, s.name AS teacher_name from teacher s where s.student_id = #{studentId} ")
     Teacher findTeacherByStudentId(@Param("studentId") Long studentId);
 
-    // 查询所有学生列表
     // 对应 XML 中同样的方式，支持一对多，支持一对一
     // 一个学生对应多个书包
     // 一个学生对应一个班主任
+    // 如果有几个类似的查询，无法像 XML 中可以抽取出公共的
+    // 只能每次 copy 到新方法
     @Results({
+            // 注意每一个 Result 配置，property 对应实体的属性值，column 对应 SQL 语句中查询的结果值
             @Result(property = "id",column = "id"),
             @Result(property="name", column="name"),
             @Result(property="studentClass.no", column="class_no"),
             @Result(property="studentClass.name", column="class_name"),
             @Result(property="studentSchool.sno", column="school_no"),
             @Result(property="studentSchool.sname", column="school_name"),
+            // 注意下面的 column = "id" 这个是主表 student 的主键 ID，通过这个 id 到 findSchoolBagsByStudentId 方法查询书包数据
+            // javaType 配置返回的是列表数据，通过 List 返回
             @Result(property = "schoolBags",column = "id", javaType = List.class,
                     many = @Many(select = "com.test.mybatis.mapper.StudentMapper.findSchoolBagsByStudentId")),
+            // 注意下面的 column = "id" 这个是主表 student 的主键 ID，通过这个 id 到 findTeacherByStudentId 方法查询班主任数据
+            // javaType 配置返回的是实体教师数据，通过 Teacher 返回
             @Result(property = "teacher",column = "id", javaType = com.test.mybatis.mapper.Teacher.class,
                     one = @One(select = "com.test.mybatis.mapper.StudentMapper.findTeacherByStudentId"))
     })

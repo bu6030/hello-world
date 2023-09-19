@@ -6,11 +6,10 @@ server:
 spring:
   datasource:
     driver-class-name: org.sqlite.JDBC
+    # 配置你自己的  sqlite db 文件路径
     url: jdbc:sqlite:/Users/XuesongBu/Documents/git_code/hello-world/hello-world.db
     username:
     password:
-  logback:
-    level: DEBUG
 mybatis:
   # 配置 mybatis xml 文件路径
   mapper-locations: classpath:mapper/*.xml
