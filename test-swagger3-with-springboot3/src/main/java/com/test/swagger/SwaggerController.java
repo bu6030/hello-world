@@ -1,5 +1,6 @@
 package com.test.swagger;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -39,5 +40,26 @@ public class SwaggerController {
     @PostMapping(value = "/swagger/student")
     public SwaggerApiModel updateStudent(@RequestBody SwaggerApiModel model){
         return model;
+    }
+
+
+    /**
+     * swagger 不暴漏该 api，通过@Hidden隐藏
+     * 但是仍然可以访问
+     * @return
+     */
+    @Hidden
+    @GetMapping(value = "/swagger/hiddenApi")
+    public String hiddenApi(){
+        return "hiddenApi";
+    }
+
+    /**
+     * swagger 暴漏该 api，没有配置@Hidden会展示
+     * @return
+     */
+    @GetMapping(value = "/swagger/noHiddenApi")
+    public String noHiddenApi(){
+        return "noHiddenApi";
     }
 }
