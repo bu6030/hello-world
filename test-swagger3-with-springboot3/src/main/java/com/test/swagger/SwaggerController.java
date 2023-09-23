@@ -37,7 +37,7 @@ public class SwaggerController {
             @ApiResponse(responseCode = "403", description = "禁止访问"),
             @ApiResponse(responseCode = "404", description = "请求路径没有或页面跳转路径不对")
     })
-    @PostMapping(value = "/swagger/student")
+    @PostMapping(value = "/swagger/student", produces = "application/json")
     public SwaggerApiModel updateStudent(@RequestBody SwaggerApiModel model){
         return model;
     }

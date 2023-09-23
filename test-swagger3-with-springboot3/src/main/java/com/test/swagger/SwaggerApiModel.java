@@ -9,16 +9,16 @@ import java.io.Serializable;
 @Schema(description= "学生信息")
 public class SwaggerApiModel implements Serializable {
 
-    @Schema(name = "主键ID", required = true)
+    @Schema(description = "主键ID", required = true, example = "1")
     private Long id;
 
-    @Schema(name = "手机号", required = true)
+    @Schema(description = "手机号", required = true)
     private String phonenum;
 
-    @Schema(name = "密码", required = true)
+    @Schema(description = "密码", required = true)
     private String password;
 
-    @Schema(name = "年龄", required = true)
+    @Schema(description = "年龄", required = true)
     private Integer age;
 
 }
