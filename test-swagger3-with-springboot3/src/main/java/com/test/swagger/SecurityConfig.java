@@ -30,9 +30,12 @@ public class SecurityConfig {
     // 配置不同接口访问权限
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        // 针对 /swagger-ui/** 限制ADMIN权限
+        // 其他接口permitAll
         return http
                 .authorizeHttpRequests((authorize) ->
-                        authorize.requestMatchers("/**").permitAll())
+                        authorize.requestMatchers("/swagger-ui/**").hasAuthority(ACCOUNT_CLIENT_AUTHORITY)
+                                .requestMatchers("/**").permitAll())
                 .httpBasic(withDefaults())
                 .build();
     }
