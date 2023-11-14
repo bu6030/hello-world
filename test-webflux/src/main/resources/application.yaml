@@ -1,0 +1,12 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /test-webflux
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    # 配置你自己的  sqlite db 文件路径
+    url: jdbc:sqlite:/Users/XuesongBu/Documents/git_code/hello-world/hello-world.db
+    username:
+    password:
+

@@ -22,5 +22,6 @@
         <module>test-spring-security6</module>
         <module>test-mybatis</module>
         <module>test-swagger3-with-springboot3</module>
+        <module>test-webflux</module>
     </modules>
 </project>
