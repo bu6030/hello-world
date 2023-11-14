@@ -1,0 +1,10 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /test-swagger-springboot2
+
+spring:
+  # 解决swagger3在新版本Springboot中无法展示的问题
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
