@@ -39,3 +39,9 @@
 [SpringBoot从入门到精通（十八）SpringBoot Test](https://zhuanlan.zhihu.com/p/603921737)
 
 [SpringBoot从入门到精通（十九）SpringBoot Docker](https://zhuanlan.zhihu.com/p/605845926)
+
+[SpringBoot从入门到精通（二十）SpringBoot MongoDB](https://zhuanlan.zhihu.com/p/641071725)
+
+[SpringBoot从入门到精通（二十一）SpringBoot3 集成Swagger3](https://zhuanlan.zhihu.com/p/657916069)
+
+[SpringBoot从入门到精通（二十二）SpringBoot3集成Keycloak单点登录](https://zhuanlan.zhihu.com/p/681973133)
