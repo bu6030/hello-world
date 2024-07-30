@@ -5,7 +5,7 @@ CREATE TABLE student(
                         class_no   integer,
                         class_name text,
                         school_no integer,
-                        school_name integer);
+                        school_name varchar(32));
 
 CREATE TABLE school_bag (
                             ID INTEGER,
