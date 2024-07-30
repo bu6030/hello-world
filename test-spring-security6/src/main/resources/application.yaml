@@ -2,3 +2,9 @@ server:
   port: 8084
   servlet:
     context-path: /test-spring-security6
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:/Users/buxuesong/Documents/git_code/hello-world/hello-world.db
+    username:
+    password:
