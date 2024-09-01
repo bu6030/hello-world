@@ -26,5 +26,6 @@
         <module>test-swagger3-with-springboot2</module>
         <module>test-annotation</module>
         <module>test-keycloak</module>
+        <module>test-mybatis-flex-with-springboot3</module>
     </modules>
 </project>
