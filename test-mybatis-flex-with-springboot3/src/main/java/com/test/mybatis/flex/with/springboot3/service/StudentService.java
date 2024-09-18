@@ -15,7 +15,7 @@ public class StudentService {
 
     public Student getStudent(Long id){
         QueryWrapper queryWrapper = new QueryWrapper();
-        queryWrapper.eq("id", id);
+        queryWrapper.eq(Student::getId, id);
         Student student = studentMapper.selectOneByQuery(queryWrapper);
         System.out.println(student);
         return student;
