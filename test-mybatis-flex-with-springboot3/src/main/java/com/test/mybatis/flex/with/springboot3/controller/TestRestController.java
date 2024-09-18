@@ -22,4 +22,9 @@ public class TestRestController {
     public Object getStudents() {
         return studentService.getStudents();
     }
+
+    @RequestMapping(value = "/student", method = RequestMethod.PUT)
+    public int updateStudent(@RequestParam Long id, @RequestParam String name) {
+        return studentService.updateStudentById(id, name);
+    }
 }

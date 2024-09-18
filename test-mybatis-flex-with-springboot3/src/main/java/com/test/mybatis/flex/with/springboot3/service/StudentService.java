@@ -27,4 +27,12 @@ public class StudentService {
         System.out.println(students);
         return students;
     }
+
+    public int updateStudentById(Long id, String name) {
+        Student student = new Student();
+        student.setName(name);
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq(Student::getId, id);
+        return studentMapper.updateByQuery(student, queryWrapper);
+    }
 }
