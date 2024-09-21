@@ -27,5 +27,6 @@
         <module>test-annotation</module>
         <module>test-keycloak</module>
         <module>test-mybatis-flex-with-springboot3</module>
+        <module>test-mybatis-plus-with-springboot3</module>
     </modules>
 </project>

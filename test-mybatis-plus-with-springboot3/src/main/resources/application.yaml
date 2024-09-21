@@ -1,0 +1,13 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /test-mybatis-plus
+
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    # 配置你自己的  sqlite db 文件路径
+    url: jdbc:sqlite:/Users/buxuesong/Documents/git_code/hello-world/hello-world.db
+    username:
+    password:
+
