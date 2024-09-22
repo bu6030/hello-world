@@ -11,3 +11,6 @@ spring:
     username:
     password:
 
+# 打印Mybatis Plus的SQL日志
+mybatis-plus.configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging.level.com.baomidou.mybatisplus.core.mapper: DEBUG

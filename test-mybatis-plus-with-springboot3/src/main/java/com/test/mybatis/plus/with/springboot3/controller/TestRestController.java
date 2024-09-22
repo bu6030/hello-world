@@ -27,4 +27,9 @@ public class TestRestController {
     public int updateStudent(@RequestParam Long id, @RequestParam String name) {
         return studentService.updateStudentById(id, name);
     }
+
+    @RequestMapping(value = "/student/lambda", method = RequestMethod.PUT)
+    public int lambdaUpdateStudent(@RequestParam Long id, @RequestParam String name) {
+        return studentService.lambdaUpdateStudentById(id, name);
+    }
 }
